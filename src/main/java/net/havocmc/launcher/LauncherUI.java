@@ -50,7 +50,8 @@ public final class LauncherUI extends JFrame {
         this.settings = settings;
         setTitle("HavocLauncher");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(560, 480));
+        setMinimumSize(new Dimension(680, 500));
+        setSize(new Dimension(720, 540));
         setLocationRelativeTo(null);
         buildUi();
         Auth.Account cached = Auth.loadCache();
