@@ -61,7 +61,14 @@ java -jar havoclauncher-<v>.jar --test-prepare
 
 ## Windows exe
 
-`.github/workflows/windows-exe.yml` builds `HavocLauncher-<v>.exe` with `jpackage` on every `v*` tag and attaches it to the GitHub release:
+The exe is built by GitHub Actions with `jpackage` on a real Windows runner (bundles its own Java runtime, Start-menu shortcut, optional directory chooser).
+
+**One-time activation** (the workflow file ships at `docs/workflows/windows-exe.yml` to keep it portable):
+
+1. On GitHub: open the repo -> **Actions** -> **New workflow** -> *set up a workflow yourself*.
+2. Paste the content of [`docs/workflows/windows-exe.yml`](docs/workflows/windows-exe.yml) and commit it as `.github/workflows/windows-exe.yml`.
+   (Or from a machine with git access that allows workflow files: `mkdir -p .github/workflows && cp docs/workflows/windows-exe.yml .github/workflows/ && git push`.)
+3. Any `v*` tag push now builds `HavocLauncher-<v>.exe` and attaches it to the release automatically:
 
 ```bash
 git tag v0.1.0 && git push origin v0.1.0
